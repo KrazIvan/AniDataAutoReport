@@ -48,7 +48,7 @@ daily_costs_summary$Date <- as.Date(daily_costs_summary$Date)
 
 ggplot(daily_costs_summary, aes(x = Date, y = Total_Cost, color = Cage_Type)) +
   geom_line() +
-  labs(x = "Date", y = "Total Cost", title = "Daily Costs of Different Cage Types") +
+  labs(x = "Date", y = "Cost (SEK)", title = "Daily Costs of Different Cage Types") +
   scale_x_date(date_labels = "%Y-%m-%d", date_breaks = "1 month") +  
   theme_minimal()
 
