@@ -10,7 +10,7 @@ def clean_filename(name):
 def xlsort(full_aniobio_datafile: str):
     df = pd.read_excel(full_aniobio_datafile)
 
-    grouped = df.groupby("Acronym line")
+    grouped = df.groupby(os.getenv("GROUP_BY_KEYWORD", "Acronym line"))
 
     for group_name, group_df in grouped:
         filename = f"{clean_filename(group_name)}.xlsx" if group_name else "blank.xlsx"
