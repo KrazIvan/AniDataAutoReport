@@ -4,7 +4,7 @@ import os
 from dotenv import load_dotenv
 from datetime import datetime, timedelta
 
-def load_cage_costs(file_path):
+def load_cage_costs(file_path: str) -> dict:
     with open(file_path, "r") as file:
         return json.load(file)
 
