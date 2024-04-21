@@ -98,7 +98,7 @@ def process_code_book(cell_value):
     else:
         return cell_value
 
-def process_excel(source_file, target_file):
+def process_excel(source_file: str, target_file: str):
     source_wb = openpyxl.load_workbook(source_file)
     target_wb = openpyxl.load_workbook(target_file)
     
