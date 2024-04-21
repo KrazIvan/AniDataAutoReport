@@ -1,4 +1,6 @@
 import openpyxl
+import os
+from dotenv import load_dotenv
 
 translation_dict = {
     'EU Submission*': 'EU-statistik *',
@@ -127,4 +129,5 @@ def process_excel(source_file, target_file):
     print("Data proccess successful")
 
 if __name__ == "__main__":
-    process_excel('source.xlsx', 'template.xlsx')
+    load_dotenv()
+    process_excel(os.getenv("SOURCE_FILE"), os.getenv("TEMPLATE_FILE"))
