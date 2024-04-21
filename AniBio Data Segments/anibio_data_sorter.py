@@ -3,7 +3,7 @@ import re
 import os
 from dotenv import load_dotenv
 
-def clean_filename(name):
+def clean_filename(name: str) -> str:
         return re.sub(r'[<>:"/\\|?*]', '_', str(name))
 
 
