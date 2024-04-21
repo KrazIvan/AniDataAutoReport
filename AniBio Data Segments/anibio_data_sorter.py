@@ -1,12 +1,14 @@
 import pandas as pd
 import re
+import os
+from dotenv import load_dotenv
 
 def clean_filename(name):
         return re.sub(r'[<>:"/\\|?*]', '_', str(name))
 
 
-def xlsort():
-    df = pd.read_excel("all.xlsx")
+def xlsort(full_aniobio_datafile: str):
+    df = pd.read_excel(full_aniobio_datafile)
 
     grouped = df.groupby("Acronym line")
 
@@ -17,4 +19,5 @@ def xlsort():
 
 
 if __name__ == "__main__":
-    xlsort()
+    load_dotenv()
+    xlsort(os.getenv("FULL_FILE"))
