@@ -46,9 +46,15 @@ daily_costs_summary <- daily_costs %>%
 
 daily_costs_summary$Date <- as.Date(daily_costs_summary$Date)
 
+if(all(lubridate::year(daily_costs_summary$Date) == lubridate::year(daily_costs_summary$Date[1]))) {
+  date_format <- "%m-%d"
+} else {
+  date_format <- "%Y-%m-%d"
+}
+
 ggplot(daily_costs_summary, aes(x = Date, y = Total_Cost, color = Cage_Type)) +
   geom_line() +
   labs(x = "Date", y = "Cost (SEK)", title = "Daily Costs of Different Cage Types") +
-  scale_x_date(date_labels = "%Y-%m-%d", date_breaks = "1 month") +  
+  scale_x_date(date_labels = date_format, date_breaks = "1 month") +
   theme_minimal()
 
